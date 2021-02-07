@@ -14,8 +14,10 @@ VALUES
 <{user_role: }>,
 <{user_security_question: }>,
 <{user_security_answer: }>);
+
+
 CREATE TABLE `user` (
-  `user_id` int NOT NULL,
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `full_name` varchar(20) DEFAULT NULL,
   `user_name` varchar(20) DEFAULT NULL,
   `user_password` varchar(20) DEFAULT NULL,
