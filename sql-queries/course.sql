@@ -18,8 +18,9 @@ VALUES
 <{image_url: }>,
 <{total_sub_course: }>,
 <{category_id: }>);
+
 CREATE TABLE `course` (
-  `course_id` int NOT NULL,
+  `course_id` int NOT NULL AUTO_INCREMENT,
   `course_name` varchar(20) DEFAULT NULL,
   `course_price` int DEFAULT NULL,
   `course_duration` int DEFAULT NULL,
