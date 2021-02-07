@@ -8,7 +8,7 @@ VALUES
 <{image_url: }>);
 
 CREATE TABLE `category` (
-  `category_id` int NOT NULL,
+  `category_id` int NOT NULL AUTO_INCREMENT,
   `category_name` varchar(30) DEFAULT NULL,
   `image_url` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`category_id`)
