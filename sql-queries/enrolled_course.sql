@@ -33,4 +33,3 @@ CREATE TABLE `enrolled_course` (
   CONSTRAINT `enrolled_course_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
   CONSTRAINT `enrolled_course_user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-SELECT * FROM cybage_learning.enrolled_course;
