@@ -1,19 +1,4 @@
-<html lang="en">
-<head>
-<title>Index Page</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css"crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.js"  crossorigin="anonymous"></script>
-
-<link rel="stylesheet"
-	href="webjars/bootstrap/4.5.3/css/bootstrap.min.css">
-<script src="webjars/bootstrap/4.5.3s/js/bootstrap.min.js"></script>
-<script src="webjars/jquery/3.5.1/jquery.min.js"></script>
-</head>
-
-
+<jsp:include page="header.jsp"></jsp:include>
 
 <%@page import="com.cybage.model.Category"%>
 <%@page import="java.util.List"%>
@@ -64,14 +49,14 @@
 
 <div class="row gx-5 gy-5">
 <div class="col-lg-6 col-sm-12">
-	<%
+	<%if((request.getAttribute("categories"))!=null) {
 		List<Category> category = (List) request.getAttribute("categories");
 		for (Category c : category) {
 			
 			out.print("<div class='card' >");
-			out.print("<img class='card-img-top' src='" + c.getUrl() + "'>");
+			out.print("<img class='card-img-top' src='" + c.getImageUrl() + "'>");
 			out.print("<div class='card-body'>");
-			out.print("<h3 class='card-title'>'" + c.getName() + "'</h3>'");
+			out.print("<h3 class='card-title'>'" + c.getCategoryName() + "'</h3>'");
 			
 			out.print(
 					"<a href='courses.jsp' class='btn btn-primary'>View Courses</a>");
@@ -79,9 +64,16 @@
 			out.print("</div>");
 
 		}
+	}
+	if((request.getAttribute("categories"))==null){
+		out.print("<a class='btn btn primary' href='"+request.getContextPath()+"/UserController/list'>VIEW MAIN PAGE</a>");
+	}
 %>
 </div>
 </div>
+
+
+
 	<!--To apply bootstrap on the html written above -->
 	<link rel="stylesheet"
 		href="webjars/bootstrap/4.5.3/css/bootstrap.min.css">

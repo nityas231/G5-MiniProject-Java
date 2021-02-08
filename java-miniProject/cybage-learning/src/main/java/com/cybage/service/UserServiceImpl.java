@@ -1,9 +1,12 @@
 package com.cybage.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.cybage.dao.UserDao;
+import com.cybage.dao.UserDaoImpl;
 import com.cybage.model.Category;
+import com.cybage.model.Course;
 
 public class UserServiceImpl implements UserService {
 	private UserDao userDao;
@@ -15,5 +18,16 @@ public class UserServiceImpl implements UserService {
 		return userDao.findCategory();
 	}
 
+	public List<Category> searchByCategory(String searchString) throws SQLException {
+		UserDao userDao = new UserDaoImpl();
+		
+		return userDao.searchByCategory(searchString);
+				
+	}
 
+	public List<Course> searchByCourse(String searchString) throws SQLException {
+		UserDao userDao = new UserDaoImpl();
+		
+		return userDao.searchByCourse(searchString);
+	}
 }
